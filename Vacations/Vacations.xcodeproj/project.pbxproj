@@ -12,6 +12,8 @@
 		1E5CBA1422E7702800505DE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5CBA1222E7702800505DE1 /* Main.storyboard */; };
 		1E5CBA1622E7702A00505DE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E5CBA1522E7702A00505DE1 /* Assets.xcassets */; };
 		1E5CBA1922E7702A00505DE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5CBA1722E7702A00505DE1 /* LaunchScreen.storyboard */; };
+		1E5CBA2522E7715A00505DE1 /* Calanques.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CBA2422E7715A00505DE1 /* Calanques.swift */; };
+		1E5CBA2722E772BE00505DE1 /* CollectionCalanque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CBA2622E772BE00505DE1 /* CollectionCalanque.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1E5CBA1522E7702A00505DE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E5CBA1822E7702A00505DE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E5CBA1A22E7702A00505DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E5CBA2422E7715A00505DE1 /* Calanques.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calanques.swift; sourceTree = "<group>"; };
+		1E5CBA2622E772BE00505DE1 /* CollectionCalanque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCalanque.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 		1E5CBA2022E7707E00505DE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E5CBA2422E7715A00505DE1 /* Calanques.swift */,
+				1E5CBA2622E772BE00505DE1 /* CollectionCalanque.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,7 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E5CBA1122E7702800505DE1 /* ViewController.swift in Sources */,
+				1E5CBA2722E772BE00505DE1 /* CollectionCalanque.swift in Sources */,
 				1E5CBA0F22E7702800505DE1 /* AppDelegate.swift in Sources */,
+				1E5CBA2522E7715A00505DE1 /* Calanques.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
