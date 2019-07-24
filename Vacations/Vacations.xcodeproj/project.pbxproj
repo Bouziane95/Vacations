@@ -10,6 +10,8 @@
 		1E2852D622E896CD0020C006 /* ControllerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2852D522E896CD0020C006 /* ControllerTableView.swift */; };
 		1E2852D822E896E70020C006 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2852D722E896E70020C006 /* MapVC.swift */; };
 		1E2852DA22E897000020C006 /* TableviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2852D922E897000020C006 /* TableviewVC.swift */; };
+		1E2852DC22E89FF40020C006 /* CalanqueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2852DB22E89FF40020C006 /* CalanqueCell.swift */; };
+		1E2852DE22E8A3120020C006 /* ImgRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2852DD22E8A3120020C006 /* ImgRound.swift */; };
 		1E5CBA0F22E7702800505DE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CBA0E22E7702800505DE1 /* AppDelegate.swift */; };
 		1E5CBA1122E7702800505DE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CBA1022E7702800505DE1 /* ViewController.swift */; };
 		1E5CBA1422E7702800505DE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5CBA1222E7702800505DE1 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		1E2852D522E896CD0020C006 /* ControllerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerTableView.swift; sourceTree = "<group>"; };
 		1E2852D722E896E70020C006 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		1E2852D922E897000020C006 /* TableviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewVC.swift; sourceTree = "<group>"; };
+		1E2852DB22E89FF40020C006 /* CalanqueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanqueCell.swift; sourceTree = "<group>"; };
+		1E2852DD22E8A3120020C006 /* ImgRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgRound.swift; sourceTree = "<group>"; };
 		1E5CBA0B22E7702800505DE1 /* Vacations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vacations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E5CBA0E22E7702800505DE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E5CBA1022E7702800505DE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		1E5CBA2122E7708300505DE1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1E2852DB22E89FF40020C006 /* CalanqueCell.swift */,
+				1E2852DD22E8A3120020C006 /* ImgRound.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,8 +193,10 @@
 				1E2852D622E896CD0020C006 /* ControllerTableView.swift in Sources */,
 				1E2852DA22E897000020C006 /* TableviewVC.swift in Sources */,
 				1E5CBA2722E772BE00505DE1 /* CollectionCalanque.swift in Sources */,
+				1E2852DE22E8A3120020C006 /* ImgRound.swift in Sources */,
 				1E5CBA0F22E7702800505DE1 /* AppDelegate.swift in Sources */,
 				1E5CBA2522E7715A00505DE1 /* Calanques.swift in Sources */,
+				1E2852DC22E89FF40020C006 /* CalanqueCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

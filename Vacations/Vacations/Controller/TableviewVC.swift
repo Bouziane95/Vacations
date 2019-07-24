@@ -11,10 +11,16 @@ import UIKit
 class TableviewVC: UITableViewController {
     
     var calanques: [Calanque] = []
+    var cellID = "calanqueCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         calanques = CollectionCalanque().all()
+        tableView.backgroundColor = UIColor.clear
+        let BG = UIImageView(frame: view.bounds)
+        BG.image = calanques[0].image
+        BG.contentMode = .scaleAspectFill
+        tableView.backgroundView = BG
     }
 
     // MARK: - Table view data source
@@ -29,6 +35,10 @@ class TableviewVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as? CalanqueCell {
+            cell.setupCell(calanques[indexPath.row])
+            return cell
+        } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let calanque = calanques[indexPath.row]
         cell.textLabel?.text = calanque.name
@@ -36,6 +46,7 @@ class TableviewVC: UITableViewController {
 
         return cell
     }
+}
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
