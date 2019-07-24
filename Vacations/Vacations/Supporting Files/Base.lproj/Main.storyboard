@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="chA-Bg-X9J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,33 +10,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Table view 2-->
+        <scene sceneID="KIu-UY-itZ">
+            <objects>
+                <tableViewController id="zif-f2-v5P" customClass="TableviewVC" customModule="Vacations" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4q5-hs-g1D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="piR-sU-s1P">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="piR-sU-s1P" id="bZA-Cz-j3r">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zif-f2-v5P" id="zKA-8e-Qrb"/>
+                            <outlet property="delegate" destination="zif-f2-v5P" id="H4N-RV-QHp"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Table view 2" selectedImage="list" id="8kP-OC-Bde"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qan-VY-op1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="2"/>
+        </scene>
+        <!--Map-->
         <scene sceneID="vV8-ik-b8E">
             <objects>
-                <viewController id="REj-5i-cWB" sceneMemberID="viewController">
+                <viewController id="REj-5i-cWB" customClass="MapVC" customModule="Vacations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HyU-xE-lhJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4tz-us-fsD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="XyF-zK-Tg8"/>
+                    <tabBarItem key="tabBarItem" title="Map" selectedImage="earth" id="XyF-zK-Tg8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KdQ-bJ-Pfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="2"/>
+            <point key="canvasLocation" x="-358" y="504"/>
         </scene>
-        <!--Item 1-->
+        <!--Table View-->
         <scene sceneID="1PD-HF-Ekc">
             <objects>
-                <viewController id="M5y-lW-HpQ" sceneMemberID="viewController">
+                <viewController id="M5y-lW-HpQ" customClass="ControllerTableView" customModule="Vacations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UmB-T8-D0a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Sh-h8-04e"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="c6j-nj-vIF"/>
+                    <tabBarItem key="tabBarItem" title="Table View" selectedImage="list" id="c6j-nj-vIF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TA8-Cq-Hgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,6 +82,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="M5y-lW-HpQ" kind="relationship" relationship="viewControllers" id="bms-6r-Yon"/>
+                        <segue destination="zif-f2-v5P" kind="relationship" relationship="viewControllers" id="9Sn-Ax-qdg"/>
                         <segue destination="REj-5i-cWB" kind="relationship" relationship="viewControllers" id="fsr-Qa-suK"/>
                     </connections>
                 </tabBarController>
@@ -61,4 +91,8 @@
             <point key="canvasLocation" x="-594" y="-331"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="earth" width="32" height="32"/>
+        <image name="list" width="32" height="32"/>
+    </resources>
 </document>
