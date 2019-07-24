@@ -8,7 +8,10 @@
 
 import UIKit
 
+let segueID = "detail"
+
 class TableviewVC: UITableViewController {
+    
     
     var calanques: [Calanque] = []
     var cellID = "calanqueCell"
@@ -52,6 +55,19 @@ class TableviewVC: UITableViewController {
         return 150
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: segueID, sender: calanques[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueID{
+            if let VC = segue.destination as? detailVC{
+                VC.receivedCalanque = sender as? Calanque
+            }
+        }
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -61,17 +77,21 @@ class TableviewVC: UITableViewController {
     }
     */
 
-    /*
+    
+    @IBAction func reloadBtnPressed(_ sender: Any) {
+        calanques = CollectionCalanque().all()
+        tableView.reloadData()
+    }
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            calanques.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
