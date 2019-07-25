@@ -9,20 +9,34 @@
 import UIKit
 import MapKit
 
-class MapVC: UIViewController, MKMapViewDelegate {
+class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var locationManager = CLLocationManager()
+    var userPosition: CLLocation?
     var calanques: [Calanque] = CollectionCalanque().all()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        locationManager.delegate = self
+        mapView.showsUserLocation = true
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         addAnnotations()
         NotificationCenter.default.addObserver(self, selector: #selector(notifDetail), name: Notification.Name("detail"), object: nil)
         if calanques.count > 0 {
             let premiere = calanques[0].coordinate
             setupMap(coordinate: premiere)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if locations.count > 0 {
+            if let myPosition = locations.last{
+                userPosition = myPosition
+            }
         }
     }
     
@@ -105,7 +119,9 @@ class MapVC: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func getPosition(_ sender: Any) {
-        
+        if userPosition != nil {
+            setupMap(coordinate: userPosition!.coordinate)
+        }
     }
     
 }
