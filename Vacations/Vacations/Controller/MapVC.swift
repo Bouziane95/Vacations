@@ -101,8 +101,6 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         }
         
         return nil
-            
-        
     }
     
     @IBAction func segmentedChange(_ sender: UISegmentedControl) {

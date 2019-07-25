@@ -74,6 +74,10 @@ class MyAnnotation: MKAnnotationView {
     }
     
     @objc func gps(){
-        
+        guard let anno = annotation as? Annotation else {return}
+        let placemark = MKPlacemark(coordinate: anno.coordinate)
+        let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+        let map = MKMapItem(placemark: placemark)
+        map.openInMaps(launchOptions: options)
     }
 }
