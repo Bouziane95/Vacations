@@ -7,24 +7,105 @@
 //
 
 import UIKit
+import MapKit
 
-class MapVC: UIViewController {
+class MapVC: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
+    var calanques: [Calanque] = CollectionCalanque().all()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        mapView.delegate = self
+        addAnnotations()
+        NotificationCenter.default.addObserver(self, selector: #selector(notifDetail), name: Notification.Name("detail"), object: nil)
+        if calanques.count > 0 {
+            let premiere = calanques[0].coordinate
+            setupMap(coordinate: premiere)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupMap(coordinate: CLLocationCoordinate2D){
+        let span = MKCoordinateSpan(latitudeDelta: 0.35, longitudeDelta: 0.35)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(region, animated: true)
     }
-    */
-
+    
+    @objc func notifDetail(notification: Notification){
+        if let calanque = notification.object as? Calanque{
+            toDetail(calanque: calanque)
+        }
+        
+    }
+    
+    func toDetail(calanque: Calanque){
+        performSegue(withIdentifier: "detail", sender: calanque)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail"{
+            if let controller = segue.destination as? detailVC{
+                controller.receivedCalanque = sender as? Calanque
+            }
+        }
+    }
+    
+    func addAnnotations(){
+        for calanques in calanques{
+        
+            //Anotation standard
+//            let annotation = MKPointAnnotation()
+//            annotation.coordinate = calanques.coordinate
+//            annotation.title = calanques.name
+//            mapView.addAnnotation(annotation)
+            
+            //Custon annotation
+            let annotation = Annotation(calanques)
+            mapView.addAnnotation(annotation)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseIdentifier = "reuseID"
+        
+        if annotation.isKind(of: MKUserLocation.self){
+            return nil
+        }
+        if let ano = annotation as? Annotation{
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+            if annotationView == nil{
+                
+                //annotationView = MyAnnotation(annotation: ano, reuseIdentifier: reuseIdentifier)
+                annotationView = MyAnnotation(controller: self, annotation: ano, reuseIdentifier: reuseIdentifier)
+                
+                return annotationView
+            } else {
+                return annotationView
+            }
+        }
+        
+        return nil
+            
+        
+    }
+    
+    @IBAction func segmentedChange(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = MKMapType.standard
+        case 1:
+            mapView.mapType = MKMapType.satellite
+        case 2:
+            mapView.mapType = MKMapType.hybrid
+        default: break
+        }
+        
+    }
+    
+    @IBAction func getPosition(_ sender: Any) {
+        
+    }
+    
 }
